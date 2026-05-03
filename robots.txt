@@ -1,0 +1,8 @@
+# robots.txt — Game People Benevento
+# https://gamepeoplebenevento.netlify.app/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://gamepeoplebenevento.netlify.app/sitemap.xml

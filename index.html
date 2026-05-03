@@ -3,28 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Primary Meta Tags -->
     <title>Game People Benevento | Videogiochi, TCG e Funko Pop in Campania</title>
+    <meta name="description" content="Game People Benevento: il negozio nerd del Centro Commerciale I Sanniti. Videogames, Funko Pop, Lego, carte Pokémon, One Piece TCG, import food. Tornei settimanali e community a Benevento, Campania.">
+    <meta name="keywords" content="negozio videogiochi Benevento, carte Pokémon Benevento, One Piece TCG Campania, Funko Pop Benevento, Lego Benevento, import food Benevento, tornei carte Sannio, Centro Commerciale I Sanniti, game shop Campania, TCG Benevento">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="author" content="Game People Benevento">
 
-    <!-- Open Graph per condivisioni Social perfette -->
+    <!-- Geo Meta Tags per Local SEO -->
+    <meta name="geo.region" content="IT-62">
+    <meta name="geo.placename" content="Benevento, Campania, Italia">
+    <meta name="geo.position" content="41.1345;14.7876">
+    <meta name="ICBM" content="41.1345, 14.7876">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://gamepeoplebenevento.netlify.app/">
+
+    <!-- Open Graph per Social Sharing -->
     <meta property="og:title" content="Game People Benevento | Il Tuo Hub Nerd in Campania">
-    <meta property="og:description" content="Videogames, Funko, Lego, Carte, merchandising e import food. Scopri il nostro negozio al Centro Commerciale I Sanniti!">
+    <meta property="og:description" content="Videogames, Funko, Lego, Carte, merchandising e import food. Scopri il nostro negozio al Centro Commerciale I Sanniti a Benevento!">
     <meta property="og:image" content="https://images.unsplash.com/photo-1605901309584-818e25960b8f?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Game People Benevento - Negozio Videogiochi e TCG">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gamepeoplebenevento.netlify.app/">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:site_name" content="Game People Benevento">
 
-    <!-- Font e Icone veloci -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Game People Benevento | Il Tuo Hub Nerd in Campania">
+    <meta name="twitter:description" content="Videogames, Funko, Lego, Carte, merchandising e import food. Centro Commerciale I Sanniti, Benevento.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1605901309584-818e25960b8f?auto=format&fit=crop&w=1200&q=80">
 
-    <!-- Favicon e App Icons -->
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="img/android-chrome-512x512.png">
 
-    <!-- CSS Separato -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- DATI STRUTTURATI SEO & GEO -->
+    <!-- Schema.org Structured Data (Local Business + FAQ) -->
     <script type="application/ld+json">
     [
       {
@@ -32,8 +54,8 @@
         "@type": "HobbyShop",
         "name": "Game People Benevento",
         "image": "https://images.unsplash.com/photo-1605901309584-818e25960b8f",
-        "@id": "https://gamepeoplebenevento.netlify.app",
-        "url": "https://gamepeoplebenevento.netlify.app",
+        "@id": "https://gamepeoplebenevento.netlify.app/",
+        "url": "https://gamepeoplebenevento.netlify.app/",
         "telephone": "",
         "address": {
           "@type": "PostalAddress",
@@ -48,9 +70,19 @@
           "latitude": 41.1345,
           "longitude": 14.7876
         },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "09:30",
+            "closes": "21:00"
+          }
+        ],
+        "priceRange": "€€",
         "sameAs": [
           "https://www.instagram.com/gamepeople_benevento/"
-        ]
+        ],
+        "description": "Negozio nerd a Benevento specializzato in videogiochi, Trading Card Games (Pokémon, One Piece, Lorcana), Funko Pop, Lego e import food. Situato nel Centro Commerciale I Sanniti, organizziamo tornei di carte collezionabili nel Sannio e in Campania."
       },
       {
         "@context": "https://schema.org",
@@ -61,7 +93,7 @@
             "name": "Dove comprare carte Pokémon e One Piece a Benevento?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Da Game People Benevento, situato nel Centro Commerciale I Sanniti, puoi trovare un'ampia selezione di carte collezionabili tra cui Pokémon TCG, One Piece Card Game, Lorcana e Yu-Gi-Oh!."
+              "text": "Da Game People Benevento, nel Centro Commerciale I Sanniti in Via dei Longobardi 24, trovi Pokémon TCG, One Piece Card Game, Lorcana e Yu-Gi-Oh!."
             }
           },
           {
@@ -69,161 +101,206 @@
             "name": "Organizzate tornei di One Piece TCG in Campania?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Sì, organizziamo regolarmente tornei di One Piece TCG e altri giochi di carte. Abbiamo un gruppo WhatsApp dedicato alla community per organizzare le sfide in negozio."
+              "text": "Sì, organizziamo regolarmente tornei di One Piece TCG e altri giochi di carte a Benevento. Abbiamo un gruppo WhatsApp dedicato alla community."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Dove si trova esattamente Game People Benevento?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Siamo in Via dei Longobardi, 24, all'interno del Centro Commerciale I Sanniti a Benevento (BN), Campania, 82100."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Ritirate l'usato dei videogiochi?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sì, valutiamo e ritiriamo i tuoi vecchi videogiochi e console per permetterti di risparmiare sui tuoi nuovi acquisti."
             }
           }
         ]
       }
     ]
     </script>
+
+    <!-- Font e Icone (caricamento non bloccante) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo-link">
-                <picture>
-                    <source media="(max-width: 480px)" srcset="img/logo-mobile.webp">
-                    <source media="(max-width: 768px)" srcset="img/logo-tablet.webp">
-                    <img src="img/logo-desktop.webp" alt="Game People Benevento Logo" class="main-logo">
-                </picture>
+<header>
+    <div class="nav-container">
+        <a href="#" class="logo">GAME<span>PEOPLE</span></a>
+        <i class="fa fa-bars menu-toggle" id="menu-toggle" aria-label="Apri menu di navigazione" role="button" tabindex="0"></i>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#vetrina">Cosa Vendiamo</a></li>
+            <li><a href="#community">Tornei</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contatti" class="cta-nav">Vieni in Negozio</a></li>
+        </ul>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <h1>Il Tuo Negozio Nerd in <span>Campania</span></h1>
+        <p>Dal 2024 il cuore pulsante del gaming a Benevento. Videogames, Funko Pop, Carte Collezionabili, Import Food e
+            tanto altro al Centro Commerciale I Sanniti.</p>
+        <a href="#vetrina" class="btn-main">Esplora la Vetrina</a>
+    </section>
+
+    <section id="vetrina" class="section-padding">
+        <div class="section-title">
+            <h2>I Nostri Prodotti</h2>
+            <p>Tutto quello che cerchi, dalle ultime esclusive alle rarità introvabili.</p>
+        </div>
+        <div class="grid-4">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1605901309584-818e25960b8f?auto=format&fit=crop&w=600&q=80"
+                    alt="Videogames e Console Benevento" class="card-img" loading="lazy" width="600" height="200">
+                <div class="card-content">
+                    <h3>Videogames &amp; Console</h3>
+                    <p>Ultime uscite, console next-gen e usato garantito per PlayStation, Xbox e Nintendo.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1613771404784-3a5686aa2be3?auto=format&fit=crop&w=600&q=80"
+                    alt="Carte Collezionabili TCG Campania" class="card-img" loading="lazy" width="600" height="200">
+                <div class="card-content">
+                    <h3>Trading Card Games</h3>
+                    <p>Box sigillati, Elite Trainer Box e carte singole per Pokémon, One Piece TCG e Lorcana.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1608889175123-8ee362201f81?auto=format&fit=crop&w=600&q=80"
+                    alt="Funko Pop e Merchandising Benevento" class="card-img" loading="lazy" width="600" height="200">
+                <div class="card-content">
+                    <h3>Merchandising &amp; Lego</h3>
+                    <p>Un muro di Funko Pop, set Lego da collezione e una marea di peluche Stitch e gadget.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1622543925917-763c34d1a86e?auto=format&fit=crop&w=600&q=80"
+                    alt="Import Food e Monster Energy Benevento" class="card-img" loading="lazy" width="600" height="200">
+                <div class="card-content">
+                    <h3>Import Food &amp; Drinks</h3>
+                    <p>Snack americani introvabili, Pringles speciali e collezioni di Monster Energy dal Giappone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="community" class="community">
+        <div class="community-text">
+            <h2>Molto più di un negozio, una Community.</h2>
+            <p>Oltre 500 follower appassionati ci hanno già scelto. Non vendiamo solo prodotti, creiamo un luogo di
+                ritrovo. Organizziamo eventi speciali come il Pokémon Day e siamo il fulcro per i tornei di carte
+                collezionabili nel Sannio.</p>
+            <p>Giochi a <strong>One Piece TCG</strong>? Entra nella nostra ciurma e partecipa ai tornei settimanali
+                organizzati direttamente nel nostro store ai Sanniti!</p>
+            <br>
+            <a href="https://chat.whatsapp.com/JhgjbGMAe6xCqAgLaZLNO3"
+                target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Unisciti al Gruppo Tornei
             </a>
-            <i class="fa fa-bars menu-toggle"></i>
-            <ul class="nav-links">
-                <li><a href="#vetrina">Cosa Vendiamo</a></li>
-                <li><a href="#community">Tornei</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contatti" class="cta-nav">Vieni in Negozio</a></li>
-            </ul>
         </div>
-    </header>
+    </section>
 
-    <main>
-        <section class="hero">
-            <h1>Il Tuo Negozio Nerd in <span>Campania</span></h1>
-            <p>Dal 2024 il cuore pulsante del gaming a Benevento. Videogames, Funko Pop, Carte Collezionabili, Import Food e tanto altro al Centro Commerciale I Sanniti.</p>
-            <a href="#vetrina" class="btn-main">Esplora la Vetrina</a>
-        </section>
-
-        <section id="vetrina" class="section-padding">
-            <div class="section-title">
-                <h2>I Nostri Prodotti</h2>
-                <p>Tutto quello che cerchi, dalle ultime esclusive alle rarità introvabili.</p>
-            </div>
-            <div class="grid-4">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1605901309584-818e25960b8f?auto=format&fit=crop&w=600&q=80" alt="Videogames e Console Benevento" class="card-img">
-                    <div class="card-content">
-                        <h3>Videogames & Console</h3>
-                        <p>Ultime uscite, console next-gen e usato garantito per PlayStation, Xbox e Nintendo.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1613771404784-3a5686aa2be3?auto=format&fit=crop&w=600&q=80" alt="Carte Collezionabili TCG Campania" class="card-img">
-                    <div class="card-content">
-                        <h3>Trading Card Games</h3>
-                        <p>Box sigillati, Elite Trainer Box e carte singole per Pokémon, One Piece TCG e Lorcana.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1608889175123-8ee362201f81?auto=format&fit=crop&w=600&q=80" alt="Funko Pop e Merchandising" class="card-img">
-                    <div class="card-content">
-                        <h3>Merchandising & Lego</h3>
-                        <p>Un muro di Funko Pop, set Lego da collezione e una marea di peluche Stitch e gadget.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1622543925917-763c34d1a86e?auto=format&fit=crop&w=600&q=80" alt="Import Food e Monster Energy" class="card-img">
-                    <div class="card-content">
-                        <h3>Import Food & Drinks</h3>
-                        <p>Snack americani introvabili, Pringles speciali e collezioni di Monster Energy dal Giappone.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="community" class="community">
-            <div class="community-text">
-                <h2>Molto più di un negozio, una Community.</h2>
-                <p>Oltre 500 follower appassionati ci hanno già scelto. Non vendiamo solo prodotti, creiamo un luogo di ritrovo. Organizziamo eventi speciali come il Pokémon Day e siamo il fulcro per i tornei di carte collezionabili nel Sannio.</p>
-                <p>Giochi a <strong>One Piece TCG</strong>? Entra nella nostra ciurma e partecipa ai tornei settimanali organizzati direttamente nel nostro store ai Sanniti!</p>
-                <br>
-                <a href="https://chat.whatsapp.com/JhgjbGMAe6xCqAgLaZLNO3" target="_blank" class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i> Unisciti al Gruppo Tornei
-                </a>
-            </div>
-        </section>
-
-        <section id="faq" class="section-padding">
-            <div class="section-title">
-                <h2>Le Domande Frequenti (FAQ)</h2>
-                <p>Tutto ciò che devi sapere sul nostro store.</p>
-            </div>
-            <div class="faq-section">
-                <div class="faq-item">
-                    <h4>📍 Dove si trova esattamente Game People Benevento?</h4>
-                    <p>Ci troviamo in Via dei Longobardi, 24, all'interno del <strong>Centro Commerciale I Sanniti</strong> a Benevento, in Campania.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>💳 Ritirate l'usato dei videogiochi?</h4>
-                    <p>Sì, valutiamo e ritiriamo i tuoi vecchi videogiochi e console per permetterti di risparmiare sui tuoi nuovi acquisti.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>🏆 Come posso partecipare ai tornei di carte?</h4>
-                    <p>Basta venire in negozio o iscriverti al nostro gruppo WhatsApp ufficiale. Organizziamo tornei per vari Trading Card Games, in particolare per la vivace community di One Piece e Pokémon.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contatti" class="section-padding" style="background: var(--light);">
-            <div class="section-title">
-                <h2>Vieni a Trovarci</h2>
-                <p>Ti aspettiamo tutti i giorni al Centro Commerciale I Sanniti.</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Game People Benevento</h3>
-                    <div class="contact-item">
-                        <i class="fa fa-map-marker-alt"></i>
-                        <div>
-                            <strong>Indirizzo:</strong><br>
-                            Via dei Longobardi, 24<br>
-                            Centro Commerciale I Sanniti<br>
-                            82100 Benevento (BN), Italia
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fa fa-tag"></i>
-                        <div>
-                            <strong>Settore:</strong><br>
-                            Negozio di Videogiochi, TCG, Fumetteria e Impresa Locale.
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-instagram"></i>
-                        <div>
-                            <strong>Social:</strong><br>
-                            Seguici su <a href="https://www.instagram.com/gamepeople_benevento/" style="color: var(--primary); font-weight:bold;">Instagram</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3017.371901174627!2d14.785311075841097!3d41.13450007928731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133a3a4b64ab51bb%3A0xcabf35d54a2a4b0c!2sCentro%20Commerciale%20I%20Sanniti!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="social-footer">
-            <a href="https://www.instagram.com/gamepeople_benevento/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://chat.whatsapp.com/JhgjbGMAe6xCqAgLaZLNO3" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <section id="faq" class="section-padding">
+        <div class="section-title">
+            <h2>Le Domande Frequenti (FAQ)</h2>
+            <p>Tutto ciò che devi sapere sul nostro store.</p>
         </div>
-        <p>&copy; 2024 Game People Benevento. Tutti i diritti riservati.</p>
-        <p style="font-size: 0.8rem; color: #888; margin-top: 10px;">Ottimizzato per Ricerca Locale e AI.</p>
-    </footer>
+        <div class="faq-section">
+            <div class="faq-item">
+                <h4>📍 Dove si trova esattamente Game People Benevento?</h4>
+                <p>Ci troviamo in Via dei Longobardi, 24, all'interno del <strong>Centro Commerciale I Sanniti</strong>
+                    a Benevento, in Campania.</p>
+            </div>
+            <div class="faq-item">
+                <h4>💳 Ritirate l'usato dei videogiochi?</h4>
+                <p>Sì, valutiamo e ritiriamo i tuoi vecchi videogiochi e console per permetterti di risparmiare sui tuoi
+                    nuovi acquisti.</p>
+            </div>
+            <div class="faq-item">
+                <h4>🏆 Come posso partecipare ai tornei di carte?</h4>
+                <p>Basta venire in negozio o iscriverti al nostro gruppo WhatsApp ufficiale. Organizziamo tornei per
+                    vari Trading Card Games, in particolare per la vivace community di One Piece e Pokémon.</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- JS Separato -->
-    <script src="js/main.js"></script>
+    <section id="contatti" class="section-padding" style="background: var(--light);">
+        <div class="section-title">
+            <h2>Vieni a Trovarci</h2>
+            <p>Ti aspettiamo tutti i giorni al Centro Commerciale I Sanniti.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Game People Benevento</h3>
+                <div class="contact-item">
+                    <i class="fa fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Indirizzo:</strong><br>
+                        Via dei Longobardi, 24<br>
+                        Centro Commerciale I Sanniti<br>
+                        82100 Benevento (BN), Italia
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa fa-tag"></i>
+                    <div>
+                        <strong>Settore:</strong><br>
+                        Negozio di Videogiochi, TCG, Fumetteria e Impresa Locale.
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-instagram"></i>
+                    <div>
+                        <strong>Social:</strong><br>
+                        Seguici su <a
+                            href="https://www.instagram.com/gamepeople_benevento/"
+                            target="_blank" rel="noopener noreferrer"
+                            style="color: var(--primary); font-weight:bold;">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3017.371901174627!2d14.785311075841097!3d41.13450007928731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133a3a4b64ab51bb%3A0xcabf35d54a2a4b0c!2sCentro%20Commerciale%20I%20Sanniti!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Mappa Game People Benevento - Centro Commerciale I Sanniti"></iframe>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="social-footer">
+        <a href="https://www.instagram.com/gamepeople_benevento/"
+            target="_blank" rel="noopener noreferrer" aria-label="Seguici su Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://chat.whatsapp.com/JhgjbGMAe6xCqAgLaZLNO3"
+            target="_blank" rel="noopener noreferrer" aria-label="Unisciti al gruppo WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    <p>&copy; 2026 Game People Benevento. Tutti i diritti riservati.</p>
+    <p style="font-size: 0.8rem; color: #888; margin-top: 10px;">Created by: Antonio Pennino</p>
+</footer>
+
+<script src="js/main.js" defer></script>
 </body>
 </html>

@@ -159,7 +159,13 @@
 
     <header>
         <div class="nav-container">
-            <a href="#" class="logo">GAME<span>PEOPLE</span></a>
+            <a href="#" class="logo" aria-label="Game People Benevento - Torna in cima">
+                <picture>
+                    <source media="(max-width: 480px)" srcset="img/logo-mobile.webp">
+                    <source media="(max-width: 1024px)" srcset="img/logo-tablet.webp">
+                    <img src="img/logo-desktop.webp" alt="Game People Benevento" class="logo-img" height="48" loading="eager">
+                </picture>
+            </a>
             <i class="fa fa-bars menu-toggle" id="menu-toggle" aria-label="Apri menu di navigazione" role="button"
                 tabindex="0"></i>
             <ul class="nav-links" id="nav-links">
@@ -187,7 +193,7 @@
             </div>
             <div class="grid-4">
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1605901309584-818e25960b8f?auto=format&fit=crop&w=600&q=80"
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
                         alt="Videogames e Console Benevento" class="card-img" loading="lazy" width="600" height="200">
                     <div class="card-content">
                         <h3>Videogames &amp; Console</h3>
@@ -332,7 +338,7 @@
             </a>
         </div>
         <p>&copy; 2026 Game People Benevento. Tutti i diritti riservati.</p>
-        <p style="font-size: 0.8rem; color: #888; margin-top: 10px;">Created by: Antonio Pennino</p>
+        <p style="font-size: 0.8rem; color: #888; margin-top: 10px;">Created by: <a href="https://antoniopennino.it/" target="_blank" rel="noopener noreferrer" style="color: #aaa; text-decoration: underline;">Antonio Pennino</a></p>
     </footer>
 
     <script src="js/main.js" defer></script>

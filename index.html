@@ -1,347 +1,1024 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GamePeople Benevento — Carte, eventi e tornei</title>
+  <meta name="description"
+    content="Il negozio di carte collezionabili di Benevento. Pokémon, One Piece, Yu-Gi-Oh!, Magic, Dragon Ball Super. Singole, sigillati, eventi e tornei al C.C. I Sanniti.">
+  <link rel="icon" href="../assets/logo-favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-    <!-- SEO Primary Meta Tags -->
-    <title>Game People Benevento | Videogiochi, TCG e Funko Pop in Campania</title>
-    <meta name="description"
-        content="Game People Benevento: il negozio nerd del Centro Commerciale I Sanniti. Videogames, Funko Pop, Lego, carte Pokémon, One Piece TCG, import food. Tornei settimanali e community a Benevento, Campania.">
-    <meta name="keywords"
-        content="negozio videogiochi Benevento, carte Pokémon Benevento, One Piece TCG Campania, Funko Pop Benevento, Lego Benevento, import food Benevento, tornei carte Sannio, Centro Commerciale I Sanniti, game shop Campania, TCG Benevento">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="author" content="Game People Benevento">
+    html {
+      scroll-behavior: smooth;
+    }
 
-    <!-- Geo Meta Tags per Local SEO -->
-    <meta name="geo.region" content="IT-62">
-    <meta name="geo.placename" content="Benevento, Campania, Italia">
-    <meta name="geo.position" content="41.1345;14.7876">
-    <meta name="ICBM" content="41.1345, 14.7876">
+    body {
+      margin: 0;
+      background: var(--bg-stage);
+      color: var(--fg-1);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://gamepeoplebenevento.netlify.app/">
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    <!-- Open Graph per Social Sharing -->
-    <meta property="og:title" content="Game People Benevento | Il Tuo Hub Nerd in Campania">
-    <meta property="og:description"
-        content="Videogames, Funko, Lego, Carte, merchandising e import food. Scopri il nostro negozio al Centro Commerciale I Sanniti a Benevento!">
-    <meta property="og:image"
-        content="https://images.unsplash.com/photo-1605901309584-818e25960b8f?auto=format&fit=crop&w=1200&q=80">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Game People Benevento - Negozio Videogiochi e TCG">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gamepeoplebenevento.netlify.app/">
-    <meta property="og:locale" content="it_IT">
-    <meta property="og:site_name" content="Game People Benevento">
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Game People Benevento | Il Tuo Hub Nerd in Campania">
-    <meta name="twitter:description"
-        content="Videogames, Funko, Lego, Carte, merchandising e import food. Centro Commerciale I Sanniti, Benevento.">
-    <meta name="twitter:image"
-        content="https://images.unsplash.com/photo-1605901309584-818e25960b8f?auto=format&fit=crop&w=1200&q=80">
+    ::selection {
+      background: var(--gp-magenta-bright);
+      color: #fff;
+    }
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="img/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="img/android-chrome-512x512.png">
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
 
-    <!-- Schema.org Structured Data (Local Business + FAQ) -->
-    <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "HobbyShop",
-        "name": "Game People Benevento",
-        "image": "https://images.unsplash.com/photo-1605901309584-818e25960b8f",
-        "@id": "https://gamepeoplebenevento.netlify.app/",
-        "url": "https://gamepeoplebenevento.netlify.app/",
-        "telephone": "",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Via dei Longobardi, 24, Centro Commerciale I Sanniti",
-          "addressLocality": "Benevento",
-          "postalCode": "82100",
-          "addressRegion": "Campania",
-          "addressCountry": "IT"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 41.1345,
-          "longitude": 14.7876
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-            "opens": "09:30",
-            "closes": "21:00"
-          }
-        ],
-        "priceRange": "€€",
-        "sameAs": [
-          "https://www.instagram.com/gamepeople_benevento/"
-        ],
-        "description": "Negozio nerd a Benevento specializzato in videogiochi, Trading Card Games (Pokémon, One Piece, Lorcana), Funko Pop, Lego e import food. Situato nel Centro Commerciale I Sanniti, organizziamo tornei di carte collezionabili nel Sannio e in Campania."
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Dove comprare carte Pokémon e One Piece a Benevento?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Da Game People Benevento, nel Centro Commerciale I Sanniti in Via dei Longobardi 24, trovi Pokémon TCG, One Piece Card Game, Lorcana e Yu-Gi-Oh!."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Organizzate tornei di One Piece TCG in Campania?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Sì, organizziamo regolarmente tornei di One Piece TCG e altri giochi di carte a Benevento. Abbiamo un gruppo WhatsApp dedicato alla community."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Dove si trova esattamente Game People Benevento?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Siamo in Via dei Longobardi, 24, all'interno del Centro Commerciale I Sanniti a Benevento (BN), Campania, 82100."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Ritirate l'usato dei videogiochi?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Sì, valutiamo e ritiriamo i tuoi vecchi videogiochi e console per permetterti di risparmiare sui tuoi nuovi acquisti."
-            }
-          }
-        ]
+    .eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--fg-blue);
+    }
+
+    .sec-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: .95;
+      font-size: clamp(40px, 6vw, 76px);
+      margin: 10px 0 0;
+      color: #fff;
+    }
+
+    .sec-title .glow {
+      text-shadow: var(--glow-headline-soft);
+    }
+
+    .lead {
+      color: var(--fg-2);
+      font-size: clamp(16px, 1.6vw, 19px);
+      line-height: 1.6;
+      max-width: 62ch;
+      text-wrap: pretty;
+    }
+
+    /* ---- buttons ---- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-family: var(--font-body);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: .06em;
+      padding: 15px 26px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      transition: transform .15s cubic-bezier(.2, .7, .3, 1), filter .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+    }
+
+    .btn:active {
+      transform: scale(.97);
+    }
+
+    .btn--primary {
+      background: var(--gp-blue);
+      color: #06222f;
+    }
+
+    .btn--primary:hover {
+      filter: brightness(1.08);
+    }
+
+    .btn--magenta {
+      background: var(--gp-magenta);
+      color: #fff;
+    }
+
+    .btn--magenta:hover {
+      filter: brightness(1.1);
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255, 255, 255, .32);
+    }
+
+    .btn--ghost:hover {
+      border-color: #fff;
+      background: rgba(255, 255, 255, .06);
+    }
+
+    /* ---- nav ---- */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(12, 16, 20, .72);
+      border-bottom: 1px solid var(--border-hairline);
+      transition: background .2s ease;
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      height: 74px;
+    }
+
+    .nav__logo {
+      height: 42px;
+      width: auto;
+      filter: drop-shadow(0 4px 14px rgba(0, 0, 0, .5));
+    }
+
+    .nav__links {
+      display: flex;
+      gap: 6px;
+      margin-left: auto;
+      align-items: center;
+    }
+
+    .nav__links a {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .02em;
+      color: var(--fg-2);
+      padding: 9px 13px;
+      border-radius: 8px;
+      transition: color .15s, background .15s;
+    }
+
+    .nav__links a:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .nav__social {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-left: 6px;
+    }
+
+    .nav__social a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, .07);
+      transition: background .15s, transform .15s;
+    }
+
+    .nav__social a:hover {
+      background: var(--gp-magenta);
+      transform: translateY(-1px);
+    }
+
+    .nav__social svg {
+      width: 18px;
+      height: 18px;
+      fill: #fff;
+    }
+
+    .nav__cta {
+      margin-left: 10px;
+    }
+
+    .nav__burger {
+      display: none;
+      margin-left: auto;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      border: 1px solid var(--border-strong);
+      background: transparent;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .nav__burger span {
+      width: 20px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: .2s;
+    }
+
+    .mobilemenu {
+      position: fixed;
+      inset: 74px 0 0;
+      z-index: 49;
+      background: rgba(12, 16, 20, .97);
+      backdrop-filter: blur(8px);
+      display: flex;
+      flex-direction: column;
+      padding: 24px 28px;
+      gap: 6px;
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: .22s;
+    }
+
+    .mobilemenu.open {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    .mobilemenu a {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 30px;
+      text-transform: uppercase;
+      color: #fff;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    section {
+      position: relative;
+    }
+
+    .pad {
+      padding: clamp(64px, 9vw, 120px) 0;
+    }
+
+    /* ---- hero ---- */
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero__bg image-slot {
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero__scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: radial-gradient(120% 90% at 50% 0%, rgba(12, 16, 20, .55) 0%, rgba(12, 16, 20, .82) 55%, #0C1014 100%);
+    }
+
+    .hero__inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.015em;
+      line-height: .9;
+      margin: 14px 0 0;
+      font-size: clamp(54px, 10vw, 150px);
+      color: #fff;
+      text-shadow: var(--glow-headline);
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: #fff;
+      display: block;
+    }
+
+    .hero__sub {
+      margin: 22px 0 0;
+      color: var(--fg-2);
+      font-size: clamp(17px, 2vw, 22px);
+      line-height: 1.5;
+      max-width: 54ch;
+    }
+
+    .hero__cta {
+      display: flex;
+      gap: 14px;
+      margin-top: 34px;
+      flex-wrap: wrap;
+    }
+
+    .hero__scroll {
+      position: absolute;
+      left: 50%;
+      bottom: 26px;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--fg-3);
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      animation: bob 2.4s ease-in-out infinite;
+    }
+
+    .hero__scroll img {
+      width: 22px;
+      opacity: .7;
+    }
+
+    @keyframes bob {
+
+      0%,
+      100% {
+        transform: translate(-50%, 0);
       }
-    ]
-    </script>
 
-    <!-- Font e Icone (caricamento non bloccante) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap">
-    </noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    </noscript>
+      50% {
+        transform: translate(-50%, 7px);
+      }
+    }
 
-    <!-- Google Material Symbols -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    /* ---- games strip ---- */
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+      margin-top: 42px;
+    }
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    .game {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-hairline);
+      background: var(--bg-card);
+      aspect-ratio: 3/4;
+      display: flex;
+      align-items: flex-end;
+      cursor: pointer;
+      transition: transform .18s ease, border-color .18s ease;
+    }
 
-    <meta name="google-site-verification" content="Gwqm8xRqMxuO_Rl3FpZ14an7X4Uo7kxbQfw4gZkRGw4" />
+    .game:hover {
+      transform: translateY(-4px);
+      border-color: var(--gp-magenta-bright);
+    }
+
+    .game image-slot {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .game__scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(12, 16, 20, .1) 30%, rgba(12, 16, 20, .9) 100%);
+      z-index: 1;
+    }
+
+    .game__name {
+      position: relative;
+      z-index: 2;
+      padding: 16px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 21px;
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+
+    .game__name small {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: .1em;
+      color: var(--fg-blue);
+      margin-bottom: 6px;
+    }
+
+    /* ---- catalog ---- */
+    .filters {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .chip {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: 9px 16px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--border-strong);
+      background: transparent;
+      color: var(--fg-2);
+      cursor: pointer;
+      transition: .15s;
+    }
+
+    .chip:hover {
+      color: #fff;
+      border-color: #fff;
+    }
+
+    .chip.active {
+      background: #fff;
+      color: #0C1014;
+      border-color: #fff;
+    }
+
+    .catalog {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .product {
+      background: var(--bg-card);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-card);
+    }
+
+    .product__img {
+      position: relative;
+      aspect-ratio: 1;
+      background: var(--bg-card-2);
+    }
+
+    .product__img image-slot {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .product__tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--gp-magenta);
+      color: #fff;
+    }
+
+    .product__body {
+      padding: 16px 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .product__game {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--fg-blue);
+    }
+
+    .product__name {
+      font-weight: 700;
+      font-size: 16px;
+      color: #fff;
+      line-height: 1.25;
+    }
+
+    .product__row {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+    }
+
+    .product__price {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 24px;
+      color: #fff;
+    }
+
+    .product__price small {
+      font-size: 13px;
+      color: var(--fg-3);
+      font-family: var(--font-body);
+      font-weight: 600;
+    }
+
+    .product__ask {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--gp-blue-bright);
+    }
+
+    .catalog__note {
+      margin-top: 22px;
+      color: var(--fg-3);
+      font-size: 13px;
+    }
+
+    /* ---- events ---- */
+    .events {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .event {
+      display: grid;
+      grid-template-columns: 128px 1fr auto;
+      gap: 24px;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+      transition: border-color .18s, background .18s;
+    }
+
+    .event:hover {
+      border-color: var(--gp-blue-bright);
+    }
+
+    .event__date {
+      text-align: center;
+      border-right: 1px solid var(--border-hairline);
+      padding-right: 20px;
+    }
+
+    .event__day {
+      font-family: var(--font-moment);
+      font-weight: 700;
+      font-size: 44px;
+      line-height: .85;
+      color: var(--gp-magenta-bright);
+      text-shadow: var(--glow-magenta);
+    }
+
+    .event__mon {
+      font-family: var(--font-moment);
+      font-weight: 700;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--fg-2);
+    }
+
+    .event__name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 1.02;
+    }
+
+    .event__meta {
+      margin-top: 7px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--fg-2);
+      font-size: 14px;
+    }
+
+    .event__meta b {
+      color: var(--fg-blue);
+      font-weight: 700;
+    }
+
+    .event__time {
+      font-family: var(--font-moment);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 30px;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    /* ---- about ---- */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .about__media {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      border: 1px solid var(--border-hairline);
+    }
+
+    .about__media image-slot {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .about__stats {
+      display: flex;
+      gap: 30px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .stat__n {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 46px;
+      color: #fff;
+      line-height: 1;
+      text-shadow: var(--glow-headline-soft);
+    }
+
+    .stat__l {
+      color: var(--fg-2);
+      font-size: 13px;
+      margin-top: 6px;
+      letter-spacing: .02em;
+    }
+
+    /* ---- visit ---- */
+    .visit {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+    }
+
+    .hours {
+      list-style: none;
+      margin: 18px 0 0;
+      padding: 0;
+    }
+
+    .hours li {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-hairline);
+      font-size: 16px;
+    }
+
+    .hours li:last-child {
+      border-bottom: none;
+    }
+
+    .hours .d {
+      color: var(--fg-2);
+      text-transform: capitalize;
+    }
+
+    .hours .h {
+      font-weight: 700;
+      color: #fff;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .hours li.today {
+      margin: 0 -16px;
+      padding: 12px 16px;
+      background: rgba(224, 55, 159, .12);
+      border-radius: 10px;
+      border-bottom: none;
+    }
+
+    .hours li.today .d {
+      color: var(--gp-magenta-bright);
+      font-weight: 700;
+    }
+
+    .hours li.today .h {
+      color: var(--gp-magenta-bright);
+    }
+
+    .visit__addr {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-top: 4px;
+    }
+
+    .visit__addr svg {
+      flex: none;
+      width: 24px;
+      height: 24px;
+      margin-top: 2px;
+    }
+
+    .visit__map {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-hairline);
+      min-height: 340px;
+      background:
+        repeating-linear-gradient(45deg, #12161b 0 22px, #14181d 22px 44px);
+    }
+
+    .visit__map image-slot {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .visit__pin {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      top: 46%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      pointer-events: none;
+    }
+
+    .visit__pin .dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--gp-magenta);
+      box-shadow: 0 0 0 8px rgba(179, 30, 128, .25), 0 0 22px var(--gp-magenta-bright);
+    }
+
+    .visit__pin .lbl {
+      background: #fff;
+      color: #0C1014;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+    }
+
+    .visit__mapcta {
+      position: absolute;
+      z-index: 3;
+      right: 16px;
+      bottom: 16px;
+    }
+
+    /* ---- newsletter / footer ---- */
+    .news {
+      background: linear-gradient(135deg, var(--gp-magenta) 0%, #7d1659 60%, #1a2a6b 140%);
+      border-radius: var(--radius-lg);
+      padding: clamp(34px, 5vw, 60px);
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .news h3 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: clamp(30px, 4.4vw, 52px);
+      line-height: .95;
+      margin: 0;
+      color: #fff;
+      text-shadow: 0 2px 24px rgba(0, 0, 0, .3);
+    }
+
+    .news p {
+      color: rgba(255, 255, 255, .85);
+      margin: 14px auto 0;
+      max-width: 46ch;
+      font-size: 16px;
+    }
+
+    .news__form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 26px;
+      flex-wrap: wrap;
+    }
+
+    .news__form input {
+      flex: 1;
+      min-width: 240px;
+      max-width: 360px;
+      padding: 15px 20px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid rgba(255, 255, 255, .4);
+      background: rgba(255, 255, 255, .12);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 15px;
+    }
+
+    .news__form input::placeholder {
+      color: rgba(255, 255, 255, .7);
+    }
+
+    .news__form input:focus {
+      outline: none;
+      border-color: #fff;
+      background: rgba(255, 255, 255, .2);
+    }
+
+    .news__ok {
+      color: #fff;
+      font-weight: 700;
+      margin-top: 22px;
+      font-size: 18px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-hairline);
+      margin-top: 0;
+    }
+
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 40px 0;
+      flex-wrap: wrap;
+    }
+
+    .foot__logo {
+      height: 40px;
+    }
+
+    .foot__links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .foot__links a {
+      color: var(--fg-2);
+      font-size: 14px;
+    }
+
+    .foot__links a:hover {
+      color: #fff;
+    }
+
+    .foot__legal {
+      color: var(--fg-3);
+      font-size: 12.5px;
+    }
+
+    .foot__social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .foot__social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .07);
+      display: grid;
+      place-items: center;
+      transition: .15s;
+    }
+
+    .foot__social a:hover {
+      background: var(--gp-magenta);
+    }
+
+    .foot__social svg {
+      width: 19px;
+      height: 19px;
+      fill: #fff;
+    }
+
+    @media (max-width:880px) {
+
+      .nav__links,
+      .nav__social,
+      .nav__cta {
+        display: none;
+      }
+
+      .nav__burger {
+        display: flex;
+      }
+
+      .about,
+      .visit {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .event {
+        grid-template-columns: 84px 1fr;
+      }
+
+      .event__time {
+        grid-column: 2;
+        justify-self: start;
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width:560px) {
+      .wrap {
+        padding: 0 20px;
+      }
+
+      .event__date {
+        padding-right: 14px;
+      }
+
+      .event__day {
+        font-size: 36px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div id="app"></div>
 
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo" aria-label="Game People Benevento - Torna in cima">
-                <picture>
-                    <source media="(max-width: 480px)" srcset="img/logo-mobile.webp">
-                    <source media="(max-width: 1024px)" srcset="img/logo-tablet.webp">
-                    <img src="img/logo-desktop.webp" alt="Game People Benevento" class="logo-img" height="48" loading="eager">
-                </picture>
-            </a>
-            <i class="fa fa-bars menu-toggle" id="menu-toggle" aria-label="Apri menu di navigazione" role="button"
-                tabindex="0"></i>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#vetrina">Cosa Vendiamo</a></li>
-                <li><a href="#community">Tornei</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contatti" class="cta-nav">Vieni in Negozio</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <main>
-        <section class="hero">
-            <h1>Il Tuo Negozio Nerd in <span>Campania</span></h1>
-            <p>Dal 2024 il cuore pulsante del gaming a Benevento. Videogames, Funko Pop, Carte Collezionabili, Import
-                Food e
-                tanto altro al Centro Commerciale I Sanniti.</p>
-            <a href="#vetrina" class="btn-main">Esplora la Vetrina</a>
-        </section>
-
-        <section id="vetrina" class="section-padding">
-            <div class="section-title">
-                <h2>I Nostri Prodotti</h2>
-                <p>Tutto quello che cerchi, dalle ultime esclusive alle rarità introvabili.</p>
-            </div>
-            <div class="grid-4">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
-                        alt="Videogames e Console Benevento" class="card-img" loading="lazy" width="600" height="200">
-                    <div class="card-content">
-                        <h3>Videogames &amp; Console</h3>
-                        <p>Ultime uscite, console next-gen e usato garantito per PlayStation, Xbox e Nintendo.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1613771404784-3a5686aa2be3?auto=format&fit=crop&w=600&q=80"
-                        alt="Carte Collezionabili TCG Campania" class="card-img" loading="lazy" width="600"
-                        height="200">
-                    <div class="card-content">
-                        <h3>Trading Card Games</h3>
-                        <p>Box sigillati, Elite Trainer Box e carte singole per Pokémon, One Piece TCG e Lorcana.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1608889175123-8ee362201f81?auto=format&fit=crop&w=600&q=80"
-                        alt="Funko Pop e Merchandising Benevento" class="card-img" loading="lazy" width="600"
-                        height="200">
-                    <div class="card-content">
-                        <h3>Merchandising &amp; Lego</h3>
-                        <p>Un muro di Funko Pop, set Lego da collezione e una marea di peluche Stitch e gadget.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1622543925917-763c34d1a86e?auto=format&fit=crop&w=600&q=80"
-                        alt="Import Food e Monster Energy Benevento" class="card-img" loading="lazy" width="600"
-                        height="200">
-                    <div class="card-content">
-                        <h3>Import Food &amp; Drinks</h3>
-                        <p>Snack americani introvabili, Pringles speciali e collezioni di Monster Energy dal Giappone.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="community" class="community">
-            <div class="community-text">
-                <h2>Molto più di un negozio, una Community.</h2>
-                <p>Oltre 500 follower appassionati ci hanno già scelto. Non vendiamo solo prodotti, creiamo un luogo di
-                    ritrovo. Organizziamo eventi speciali come il Pokémon Day e siamo il fulcro per i tornei di carte
-                    collezionabili nel Sannio.</p>
-                <p>Giochi a <strong>One Piece TCG</strong>? Entra nella nostra ciurma e partecipa ai tornei settimanali
-                    organizzati direttamente nel nostro store ai Sanniti!</p>
-                <br>
-                <a href="https://chat.whatsapp.com/JhgjbGMAe6xCqAgLaZLNO3" target="_blank" rel="noopener noreferrer"
-                    class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i> Unisciti al Gruppo Tornei
-                </a>
-            </div>
-        </section>
-
-        <section id="faq" class="section-padding">
-            <div class="section-title">
-                <h2>Le Domande Frequenti (FAQ)</h2>
-                <p>Tutto ciò che devi sapere sul nostro store.</p>
-            </div>
-            <div class="faq-section">
-                <div class="faq-item">
-                    <h4><span class="material-symbols-outlined faq-icon">location_on</span> Dove si trova esattamente
-                        Game People Benevento?</h4>
-                    <p>Ci troviamo in Via dei Longobardi, 24, all'interno del <strong>Centro Commerciale I
-                            Sanniti</strong>
-                        a Benevento, in Campania.</p>
-                </div>
-                <div class="faq-item">
-                    <h4><span class="material-symbols-outlined faq-icon">sell</span> Ritirate l'usato dei videogiochi?
-                    </h4>
-                    <p>Sì, valutiamo e ritiriamo i tuoi vecchi videogiochi e console per permetterti di risparmiare sui
-                        tuoi
-                        nuovi acquisti.</p>
-                </div>
-                <div class="faq-item">
-                    <h4><span class="material-symbols-outlined faq-icon">emoji_events</span> Come posso partecipare ai
-                        tornei di carte?</h4>
-                    <p>Basta venire in negozio o iscriverti al nostro gruppo WhatsApp ufficiale. Organizziamo tornei per
-                        vari Trading Card Games, in particolare per la vivace community di One Piece e Pokémon.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contatti" class="section-padding" style="background: var(--light);">
-            <div class="section-title">
-                <h2>Vieni a Trovarci</h2>
-                <p>Ti aspettiamo tutti i giorni al Centro Commerciale I Sanniti.</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Game People Benevento</h3>
-                    <div class="contact-item">
-                        <i class="fa fa-map-marker-alt"></i>
-                        <div>
-                            <strong>Indirizzo:</strong><br>
-                            Via dei Longobardi, 24<br>
-                            Centro Commerciale I Sanniti<br>
-                            82100 Benevento (BN), Italia
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fa fa-tag"></i>
-                        <div>
-                            <strong>Settore:</strong><br>
-                            Negozio di Videogiochi, TCG, Fumetteria e Impresa Locale.
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-instagram"></i>
-                        <div>
-                            <strong>Social:</strong><br>
-                            Seguici su <a href="https://www.instagram.com/gamepeople_benevento/" target="_blank"
-                                rel="noopener noreferrer" style="color: var(--primary); font-weight:bold;">Instagram</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="map-container">
-                    <iframe
-                        src="https://maps.google.com/maps?q=Centro+Commerciale+I+Sanniti,+Via+dei+Longobardi+24,+82100+Benevento,+BN,+Italia&t=&z=16&ie=UTF8&iwloc=B&output=embed"
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Mappa Game People Benevento - Centro Commerciale I Sanniti"></iframe>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="social-footer">
-            <a href="https://www.instagram.com/gamepeople_benevento/" target="_blank" rel="noopener noreferrer"
-                aria-label="Seguici su Instagram">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path
-                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
-            </a>
-            <a href="https://chat.whatsapp.com/JhgjbGMAe6xCqAgLaZLNO3" target="_blank" rel="noopener noreferrer"
-                aria-label="Unisciti al gruppo WhatsApp">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path
-                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
-            </a>
-        </div>
-        <p>&copy; 2026 Game People Benevento. Tutti i diritti riservati.</p>
-        <p style="font-size: 0.8rem; color: #888; margin-top: 10px;">Created by: <a href="https://antoniopennino.it/" target="_blank" rel="noopener noreferrer" style="color: #aaa; text-decoration: underline;">Antonio Pennino</a></p>
-    </footer>
-
-    <script src="js/main.js" defer></script>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"
+    integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"
+    integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"
+    integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y"
+    crossorigin="anonymous"></script>
+  <script src="image-slot.js"></script>
+  <script type="text/babel" src="sections.jsx"></script>
+  <script type="text/babel" src="app.jsx"></script>
 </body>
 
 </html>

@@ -1,0 +1,357 @@
+/* ============================================================
+   GamePeople Benevento — Colors & Type
+   Source: Figma "GamePeople.fig" — extracted Nov 2025
+   Brand: Italian TCG / collectibles store, Benevento, Italy
+   ============================================================ */
+
+/* ----- Brand webfont: Myriad Pro (self-hosted, user-supplied) -----
+   The real brand face. Humanist sans with full condensed family.
+   - Regular / Light / Semibold / Bold  → body, UI, subheads
+   - Bold Condensed (+italic)            → display headlines & "moment" lines
+   Family names below are referenced by --font-display / --font-body. */
+
+@font-face {
+  font-family: 'Myriad Pro';
+  font-weight: 300;
+  font-style: normal;
+  src: url('fonts/MyriadPro-Light.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  font-weight: 400;
+  font-style: normal;
+  src: url('fonts/MYRIADPRO-REGULAR.OTF') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  font-weight: 600;
+  font-style: normal;
+  src: url('fonts/MYRIADPRO-SEMIBOLD.OTF') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  font-weight: 600;
+  font-style: italic;
+  src: url('fonts/MYRIADPRO-SEMIBOLDIT.OTF') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  font-weight: 700;
+  font-style: normal;
+  src: url('fonts/MYRIADPRO-BOLD.OTF') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  font-weight: 700;
+  font-style: italic;
+  src: url('fonts/MYRIADPRO-BOLDIT.OTF') format('opentype');
+  font-display: swap;
+}
+
+/* Condensed cuts get their own family name (stretch is unreliable for .otf) */
+@font-face {
+  font-family: 'Myriad Pro Cond';
+  font-weight: 400;
+  font-style: normal;
+  src: url('fonts/MYRIADPRO-COND.OTF') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Myriad Pro Cond';
+  font-weight: 400;
+  font-style: italic;
+  src: url('fonts/MYRIADPRO-CONDIT.OTF') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Myriad Pro Cond';
+  font-weight: 700;
+  font-style: normal;
+  src: url('fonts/MYRIADPRO-BOLDCOND.OTF') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Myriad Pro Cond';
+  font-weight: 700;
+  font-style: italic;
+  src: url('fonts/MYRIADPRO-BOLDCONDIT.OTF') format('opentype');
+  font-display: swap;
+}
+
+/* ----- Paired display face: Bricolage Grotesque (Google Fonts CDN) -----
+   Characterful modern grotesque for short hero headlines. Pairs with the
+   humanist Myriad Pro workhorse. Not a brand-supplied file — CDN-delivered. */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap');
+
+:root {
+  /* ---------- BRAND CORE (real logo palette) ------------- */
+  --gp-magenta: #B31E80;
+  /* primary brand magenta (real logo) */
+  --gp-magenta-deep: #8E1566;
+  /* shadow / hover variant       */
+  --gp-magenta-bright: #E0379F;
+  /* lifted magenta for glow on dark */
+  --gp-blue: #2D99D5;
+  /* secondary blue (real logo dots) */
+  --gp-blue-deep: #2178AB;
+  --gp-blue-bright: #45B4ED;
+  /* lifted blue for glow on dark   */
+  --gp-cyan: #2D99D5;
+  /* alias — brand secondary is this blue */
+  --gp-cyan-deep: #2178AB;
+
+  /* ---------- COMMUNICATION PALETTE ----------------------- */
+  /* Dark stage + white headlines wrapped in a magenta/blue chroma glow */
+  --gp-ink: #0C1014;
+  /* official Figma var "gray-100" */
+  --gp-ink-soft: #14181D;
+  /* lifted surface on dark      */
+  --gp-ink-card: #1E2329;
+  /* tertiary surface            */
+  --gp-paper: #FFFFFF;
+  /* official Figma var "white-100" */
+  --gp-paper-dim: rgba(255, 255, 255, .72);
+  --gp-paper-mute: rgba(255, 255, 255, .45);
+
+  /* ---------- SEMANTIC SURFACES --------------------------- */
+  --fg-1: var(--gp-paper);
+  /* primary text on dark */
+  --fg-2: var(--gp-paper-dim);
+  /* secondary text       */
+  --fg-3: var(--gp-paper-mute);
+  /* tertiary / meta      */
+  --fg-accent: var(--gp-paper);
+  /* hero headline fill = white + chroma glow */
+  --fg-magenta: var(--gp-magenta-bright);
+  /* magenta accent on dark */
+  --fg-blue: var(--gp-blue-bright);
+  /* blue accent on dark    */
+  --fg-link: var(--gp-blue-bright);
+  /* link / pin / CTA       */
+  --fg-pop: var(--gp-magenta);
+  /* pop-callout ink (was orange) */
+
+  --bg-stage: var(--gp-ink);
+  /* default canvas       */
+  --bg-stage-grad: radial-gradient(circle at 50% 0%, #1A1F26 0%, #0C1014 60%);
+  --bg-card: var(--gp-ink-soft);
+  --bg-card-2: var(--gp-ink-card);
+
+  --border-hairline: rgba(255, 255, 255, .08);
+  --border-strong: rgba(255, 255, 255, .18);
+
+  /* ---------- TYPOGRAPHY (FAMILIES) ----------------------- */
+  /* Display: Bricolage Grotesque — paired display face for short hero words */
+  --font-display: 'Bricolage Grotesque', 'Myriad Pro', system-ui, sans-serif;
+  /* Condensed: Myriad Pro Bold Condensed — for long headline lines        */
+  --font-cond: 'Myriad Pro Cond', 'Arial Narrow', sans-serif;
+  /* Subhead / body / UI: Myriad Pro upright                                */
+  --font-body: 'Myriad Pro', 'Helvetica Neue', system-ui, -apple-system, Arial, sans-serif;
+  /* "Moment" lines (timestamps): Myriad Pro Condensed (bold + italic)      */
+  --font-moment: 'Myriad Pro Cond', 'Myriad Pro', sans-serif;
+  --font-serif: var(--font-moment);
+  /* back-compat alias */
+
+  /* ---------- TYPE SCALE (px) ----------------------------- */
+  --fs-display-xl: 220px;
+  /* hero IG headlines (FB09, YU-GI-OH!) */
+  --fs-display-lg: 140px;
+  --fs-display-md: 88px;
+  --fs-h1: 64px;
+  --fs-h2: 44px;
+  --fs-h3: 32px;
+  --fs-body-lg: 22px;
+  --fs-body: 17px;
+  --fs-body-sm: 14px;
+  --fs-meta: 12px;
+
+  --lh-tight: 0.92;
+  --lh-snug: 1.05;
+  --lh-normal: 1.35;
+  --lh-loose: 1.55;
+
+  --ls-display: -0.01em;
+  --ls-headline: 0.02em;
+  --ls-caps: 0.08em;
+  /* wide-tracked label caps */
+
+  /* ---------- SPACING (modular, 4px base) ----------------- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+
+  /* ---------- RADII & SHADOWS ----------------------------- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* The signature chroma glow: magenta core + blue halo + faint white.
+     Wraps the white hero headlines — neon-arcade energy for the TCG store. */
+  --glow-headline: 0 0 22px rgba(224, 55, 159, .60),
+    0 0 52px rgba(69, 180, 237, .42),
+    0 0 8px rgba(255, 255, 255, .30);
+  --glow-headline-soft: 0 0 16px rgba(224, 55, 159, .45),
+    0 0 34px rgba(69, 180, 237, .30);
+  /* Single-hue glows for monochrome headlines */
+  --glow-magenta: 0 0 26px rgba(224, 55, 159, .60), 0 0 10px rgba(224, 55, 159, .55);
+  --glow-blue: 0 0 26px rgba(69, 180, 237, .60), 0 0 10px rgba(69, 180, 237, .55);
+
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, .45);
+  --shadow-pop: 0 12px 40px rgba(0, 0, 0, .6);
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT STYLES
+   Apply by default to common tags + .gp-* helpers
+   ============================================================ */
+
+.gp-stage {
+  background: var(--bg-stage);
+  color: var(--fg-1);
+  font-family: var(--font-body);
+}
+
+/* ----- Display headlines (white, wrapped in the chroma glow) - */
+.gp-display,
+h1.gp-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  /* Bricolage Grotesque ExtraBold */
+  font-size: var(--fs-display-lg);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display);
+  color: var(--fg-accent);
+  /* white */
+  text-shadow: var(--glow-headline);
+  text-transform: uppercase;
+}
+
+.gp-display--xl {
+  font-size: var(--fs-display-xl);
+}
+
+.gp-display--md {
+  font-size: var(--fs-display-md);
+}
+
+/* Monochrome headline variants */
+.gp-display--magenta {
+  color: var(--fg-magenta);
+  text-shadow: var(--glow-magenta);
+}
+
+.gp-display--blue {
+  color: var(--fg-blue);
+  text-shadow: var(--glow-blue);
+}
+
+/* Condensed display for long Italian lines (uses the Myriad cut) */
+.gp-display--cond {
+  font-family: var(--font-cond);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* ----- White subhead (the bold sans line under headlines) -- */
+.gp-subhead {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-headline);
+  color: var(--fg-1);
+  text-transform: uppercase;
+}
+
+/* ----- "Moment" lines (timestamps, "DOMANI alle 15:00") ----
+   Myriad Pro Condensed; magenta upright bold noun + white
+   condensed italic time.                                       */
+.gp-serif,
+.gp-moment {
+  font-family: var(--font-moment);
+  font-weight: 700;
+  font-size: var(--fs-display-md);
+  line-height: var(--lh-snug);
+  color: var(--fg-magenta);
+  text-shadow: var(--glow-magenta);
+  text-transform: uppercase;
+}
+
+.gp-serif--italic,
+.gp-moment--italic {
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  color: var(--fg-1);
+  text-shadow: 0 0 18px rgba(255, 255, 255, .25);
+}
+
+/* ----- Pop callout (orange box for unexpected finds) ------- */
+.gp-pop {
+  display: inline-block;
+  background: var(--gp-paper);
+  color: var(--fg-pop);
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: var(--fs-h3);
+  padding: var(--sp-3) var(--sp-5);
+  letter-spacing: 0;
+  line-height: 1.18;
+  border-radius: 4px;
+  box-shadow: var(--shadow-pop);
+}
+
+/* ----- Wide-tracked label caps ----------------------------- */
+.gp-label {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-body-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-caps);
+  color: var(--fg-2);
+}
+
+/* ----- Body copy ------------------------------------------- */
+.gp-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: var(--lh-loose);
+  color: var(--fg-2);
+  text-wrap: pretty;
+}
+
+/* ----- Address / meta block (Facebook cover style) --------- */
+.gp-meta {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-body-lg);
+  color: var(--fg-1);
+}
+
+.gp-meta__sub {
+  font-weight: 400;
+  color: var(--fg-2);
+  font-size: var(--fs-body);
+}

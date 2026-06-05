@@ -3,7 +3,7 @@
 const { useState } = React;
 
 /* ----------------------------- shared data ----------------------------- */
-const GP_ADDRESS = "C.C. I Sanniti — Via dei Longobardi 24, Benevento 82100";
+const GP_ADDRESS = "C.C. I Sanniti · Via dei Longobardi 24, Benevento 82100";
 const GP_MAPS = "https://maps.app.goo.gl/tSnkSwuz2pxaMR4X9";
 const GP_IG = "https://www.instagram.com/gamepeople_benevento/";
 const GP_FB = "https://www.facebook.com/gamepeoplebn";
@@ -11,33 +11,30 @@ const GP_PHONE = "082450302";
 const GP_EMAIL = "gamepeoplebenevento@gmail.com";
 
 const GAMES = [
-  { name: "Videogiochi & Console", tag: "Nuovo e Usato", slot: "game-videogames", img: "../assets/cat_videogames_1780049095090.png" },
-  { name: "Funko & Art Toys", tag: "Pop Culture", slot: "game-funko", img: "../assets/cat_funko_1780049108417.png" },
-  { name: "Carte Collezionabili", tag: "TCG", slot: "game-tcg", img: "../assets/cat_tcg_1780049121595.png" },
-  { name: "Manga & Fumetti", tag: "Editoria Visiva", slot: "game-manga", img: "../assets/cat_manga_1780049134786.png" },
-  { name: "Giochi da Tavolo", tag: "Boardgames", slot: "game-board", img: "../assets/cat_boardgames_1780049158870.png" },
-  { name: "Abbigliamento", tag: "Merchandise", slot: "game-merch", img: "../assets/cat_merch_1780049174728.png" },
+  { name: "Videogiochi & Console", tag: "Nuovo e Usato", slot: "game-videogames", img: "../img/other/IMG_3093-01.jpeg" },
+  { name: "Funko & Art Toys", tag: "Pop Culture", slot: "game-funko", img: "../img/other/IMG_3104-01.jpeg" },
+  { name: "Carte Collezionabili", tag: "TCG", slot: "game-tcg", img: "../img/other/IMG_3097-01.jpeg" },
+  { name: "Snack & Drink", tag: "Cibi dal mondo", slot: "game-food", img: "../img/other/IMG_3106-01.jpeg" },
+  { name: "Giochi da Tavolo", tag: "Boardgames", slot: "game-board", img: "../img/other/IMG_3108-01.jpeg" },
+  { name: "Abbigliamento", tag: "Merchandise", slot: "game-merch", img: "../img/other/IMG_3090-01.jpeg" },
 ];
 
 // Mini-catalogo di esempio — sostituisci con i tuoi prodotti reali.
 const PRODUCTS = [
-  { game: "Videogiochi", name: "Ritiro Usato — Portaci i tuoi giochi", price: "Valutazione", cat: "Usato", tag: "Vantaggio", slot: "p-usato" },
-  { game: "Collezionismo", name: "Statue Tsume & Box Acrilici", price: "da 29,90", cat: "Kidult", slot: "p-tsume" },
-  { game: "Carte", name: "Marvel Mission Arena & TCG", price: "Variabile", cat: "Carte", tag: "Novità", slot: "p-cards" },
-  { game: "Manga", name: "Novità settimanali e serie complete", price: "da 5,20", cat: "Manga", slot: "p-manga" },
-  { game: "Console", name: "PlayStation 5, Switch e Xbox", price: "da 299,00", cat: "Console", slot: "p-console" },
-  { game: "Servizi Digitali", name: "Ricariche PSN, eShop & SaveTheGame", price: "Variabile", cat: "Servizi", tag: "Pronto Uso", slot: "p-digital" },
-  { game: "Merchandise", name: "Minifigure Bullyland & Monogram", price: "da 9,90", cat: "Kidult", slot: "p-merch" },
-  { game: "Home Video", name: "Film e Serie TV (DVD/Blu-Ray)", price: "da 9,90", cat: "Usato", slot: "p-homevideo" },
+  { game: "Videogiochi", name: "Ritiro Usato: Portaci i tuoi giochi", price: "Valutazione", cat: "Usato", tag: "Vantaggio", slot: "p-usato", img: "../img/other/IMG_3094-01.jpeg" },
+  { game: "Collezionismo", name: "Statue Tsume & Box Acrilici", price: "da 29,90", cat: "Kidult", slot: "p-tsume", img: "../img/other/IMG_3111-01.jpeg" },
+  { game: "Carte", name: "Marvel Mission Arena & TCG", price: "Variabile", cat: "Carte", tag: "Novità", slot: "p-cards", img: "../img/other/IMG_3100-01.jpeg" },
+  { game: "Snack", name: "Snack & Drink dal mondo (Monster, Reese's)", price: "da 1,50", cat: "Food", slot: "p-food", img: "../img/other/IMG_3107-01.jpeg" },
+  { game: "Console", name: "PlayStation 5, Switch e Xbox", price: "da 299,00", cat: "Console", slot: "p-console", img: "../img/other/IMG_3116-01.jpeg" },
+  { game: "Servizi Digitali", name: "Ricariche PSN, eShop & SaveTheGame", price: "Variabile", cat: "Servizi", tag: "Pronto Uso", slot: "p-digital", img: "../img/other/IMG_3099-01.jpeg" },
+  { game: "Merchandise", name: "Minifigure Bullyland & Mugs", price: "da 9,90", cat: "Kidult", slot: "p-merch", img: "../img/other/IMG_3109-01.jpeg" },
+  { game: "Home Video", name: "Film e Serie TV (DVD/Blu-Ray)", price: "da 9,90", cat: "Usato", slot: "p-homevideo", img: "../img/other/IMG_3092-01.jpeg" },
 ];
-const CATS = ["Tutti", "Usato", "Kidult", "Carte", "Manga", "Console", "Servizi"];
+const CATS = ["Tutti", "Usato", "Kidult", "Carte", "Food", "Console", "Servizi"];
 
 // Eventi di esempio — aggiorna con il tuo calendario reale.
 const EVENTS = [
-  { day: "07", mon: "Giu", name: "Torneo Pokémon — Standard", game: "Pokémon", format: "Swiss + Top 8", time: "15:00" },
-  { day: "14", mon: "Giu", name: "Marvel Mission Arena — Release", game: "Marvel", format: "Release Party", time: "16:00" },
-  { day: "21", mon: "Giu", name: "Yu-Gi-Oh! — Sealed Night", game: "Yu-Gi-Oh!", format: "Sealed", time: "15:30" },
-  { day: "28", mon: "Giu", name: "Magic — Commander Party", game: "Magic", format: "Commander", time: "17:00" },
+  { day: "Sab", mon: "Sett", name: "Torneo One Piece Card Game", game: "One Piece TCG", format: "Store Tournament", time: "16:00", whatsapp: "https://chat.whatsapp.com/JhgjbGMAe6xCqAgLaZLNO3?mode=gi_c" },
 ];
 
 /* ----------------------------- icons ----------------------------- */
@@ -94,21 +91,26 @@ function Catalog() {
             <article className="product" key={p.name}>
               <div className="product__img">
                 {p.tag && <span className="product__tag">{p.tag}</span>}
-                <image-slot id={p.slot} placeholder={"Foto prodotto"}></image-slot>
+                <image-slot id={p.slot} src={p.img} placeholder={"Foto prodotto"}></image-slot>
               </div>
               <div className="product__body">
                 <div className="product__game">{p.game}</div>
                 <div className="product__name">{p.name}</div>
                 <div className="product__row">
                   <div className="product__price">€ {p.price}</div>
-                  <a className="product__ask" href={GP_IG} target="_blank" rel="noopener">Disponibilità →</a>
+                  <a className="product__ask" href={GP_IG} target="_blank" rel="noopener">
+                    Disponibilità 
+                    <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 14, height: 14, display: 'inline-block', verticalAlign: 'middle', marginLeft: 4, transition: 'transform 0.15s ease' }}>
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </a>
                 </div>
               </div>
             </article>
           ))}
         </div>
         <p className="catalog__note">
-          * Catalogo di esempio — prezzi e disponibilità indicativi. Nessun acquisto online: prenoti scrivendoci sui social o vieni in negozio.
+          * Catalogo di esempio: prezzi e disponibilità indicativi. Nessun acquisto online: prenoti scrivendoci sui social o vieni in negozio.
         </p>
       </div>
     </section>
@@ -123,7 +125,7 @@ function Events() {
         <div className="eyebrow">Calendario</div>
         <h2 className="sec-title">Eventi & <span className="glow">tornei</span></h2>
         <p className="lead" style={{ marginTop: 16 }}>
-          Ogni settimana tavoli aperti, tornei ufficiali e serate a tema. Iscrizioni in negozio o in DM — i posti sono limitati.
+          Ogni settimana tavoli aperti, tornei ufficiali e serate a tema. Iscrizioni in negozio o in DM: i posti sono limitati.
         </p>
         <div className="events">
           {EVENTS.map((e) => (
@@ -135,6 +137,12 @@ function Events() {
               <div>
                 <div className="event__name">{e.name}</div>
                 <div className="event__meta"><span><b>{e.game}</b></span><span>{e.format}</span></div>
+                {e.whatsapp && (
+                  <a className="btn btn--whatsapp" href={e.whatsapp} target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: 14, height: 14, marginRight: 6 }}><path d="M12.012 2c-5.506 0-9.988 4.482-9.988 9.988 0 1.761.459 3.479 1.332 5.006L2 22l5.148-1.349c1.472.802 3.129 1.226 4.854 1.226 5.507 0 9.989-4.482 9.989-9.988C22 6.482 17.518 2 12.012 2zm4.721 13.493c-.26.731-1.348 1.325-1.854 1.41-.482.082-.973.309-3.078-.564-2.529-1.05-4.148-3.626-4.274-3.797-.127-.171-1.03-1.371-1.03-2.617 0-1.246.654-1.859.886-2.112.233-.254.508-.318.677-.318.169 0 .338.001.486.009.157.008.369-.06.578.448.212.516.72 1.761.783 1.892.063.13.106.282.021.451-.085.169-.127.272-.254.423-.127.151-.267.338-.381.464-.127.141-.26.294-.112.548.148.254.66.1.758.1c1.365.986 2.274 1.349 2.507 1.478.233.129.369.109.508-.051.139-.16 1.057-1.233 1.141-1.361.085-.129.169-.109.296-.063.127.047.807.382 1.484.72.677.338 1.129.507 1.214.65.085.142.085.823-.175 1.554z" /></svg>
+                    Gruppo WhatsApp
+                  </a>
+                )}
               </div>
               <div className="event__time">alle {e.time}</div>
             </div>
@@ -163,7 +171,7 @@ function About() {
           </div>
         </div>
         <div className="about__media">
-          <image-slot id="about-shop" src="../assets/about_shop_1780049082250.png" placeholder="Foto del negozio / dei clienti"></image-slot>
+          <image-slot id="about-shop" src="../img/other/IMG_3091-01.jpeg" placeholder="Foto del negozio / dei clienti"></image-slot>
         </div>
       </div>
     </section>

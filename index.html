@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GamePeople Benevento — Videogiochi, TCG, manga e tornei</title>
+  <title>GamePeople Benevento | Videogiochi, TCG, Snack e Tornei</title>
   <meta name="description"
     content="Negozio di intrattenimento e pop culture al C.C. I Sanniti, Benevento. Videogiochi nuovi e usati, carte collezionabili, manga, Funko, boardgame, tornei settimanali e Area Tornei.">
   <link rel="icon" href="../assets/logo-favicon.svg" type="image/svg+xml">
@@ -129,6 +129,41 @@
       background: rgba(255, 255, 255, .06);
     }
 
+    .btn--whatsapp {
+      background: #25D366;
+      color: #fff !important;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      padding: 8px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-top: 12px;
+      transition: transform .15s ease, filter .15s ease;
+    }
+
+    .btn--whatsapp:hover {
+      filter: brightness(1.08);
+      transform: scale(1.02);
+    }
+
+    .btn--whatsapp:active {
+      transform: scale(0.98);
+    }
+
+    .btn--whatsapp svg {
+      fill: currentColor;
+      width: 15px;
+      height: 15px;
+    }
+
+    .product__ask:hover .arrow-icon {
+      transform: translateX(4px);
+    }
+
     /* ---- nav ---- */
     .nav {
       position: sticky;
@@ -232,10 +267,14 @@
 
     .mobilemenu {
       position: fixed;
-      inset: 74px 0 0;
+      top: 102px;
+      left: 0;
+      right: 0;
+      height: calc(100vh - 102px); /* Explicit height calculation to prevent containing block collapse */
       z-index: 49;
-      background: rgba(12, 16, 20, .97);
-      backdrop-filter: blur(8px);
+      background: #0C1014; /* Solid page background to prevent transparency issues */
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       display: flex;
       flex-direction: column;
       padding: 24px 28px;
@@ -244,6 +283,7 @@
       opacity: 0;
       pointer-events: none;
       transition: .22s;
+      overflow-y: auto;
     }
 
     .mobilemenu.open {
@@ -906,7 +946,8 @@
       justify-content: space-between;
       align-items: center;
       gap: 24px;
-      padding: 40px 0;
+      padding-top: 40px;
+      padding-bottom: 40px;
       flex-wrap: wrap;
     }
 
@@ -986,6 +1027,11 @@
         justify-self: start;
         font-size: 24px;
       }
+
+      /* Spacing to keep scroll indicator from overlapping hero CTA buttons on mobile */
+      .hero__inner {
+        padding-bottom: 80px;
+      }
     }
 
     @media (max-width:560px) {
@@ -999,6 +1045,40 @@
 
       .event__day {
         font-size: 36px;
+      }
+
+      /* Scale down category card titles on mobile to prevent long words from clipping */
+      .game__name {
+        font-size: 16px;
+        padding: 12px;
+      }
+
+      /* Adjust hero title font-size to prevent overflow on very narrow screens */
+      .hero h1 {
+        font-size: clamp(38px, 9vw, 80px);
+      }
+
+      /* Stack footer elements vertically and center them on mobile */
+      .foot {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+
+      .foot__links {
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .foot__social {
+        justify-content: center;
+        margin-top: 8px;
+      }
+
+      .foot__legal {
+        text-align: center;
       }
     }
   </style>

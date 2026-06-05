@@ -23,14 +23,14 @@ function Nav() {
           <a href={window.GP_IG} target="_blank" rel="noopener" aria-label="Instagram"><window.IgIcon /></a>
           <a href={window.GP_FB} target="_blank" rel="noopener" aria-label="Facebook"><window.FbIcon /></a>
         </div>
-        <a className="btn btn--magenta nav__cta" href="#contatti">Contattaci</a>
+        <a className="btn btn--magenta nav__cta" href="https://ig.me/m/gamepeople_benevento" target="_blank" rel="noopener">Contattaci</a>
         <button className="nav__burger" aria-label="Menu" onClick={() => setOpen((o) => !o)}>
           <span></span><span></span><span></span>
         </button>
       </div>
       <div className={"mobilemenu" + (open ? " open" : "")} onClick={() => setOpen(false)}>
         {links.map(([t, h]) => <a key={h} href={h}>{t}</a>)}
-        <a href="#contatti">Contattaci</a>
+        <a href="https://ig.me/m/gamepeople_benevento" target="_blank" rel="noopener">Contattaci</a>
       </div>
     </div>
   );
@@ -40,14 +40,14 @@ function Hero() {
   return (
     <header className="hero" id="top">
       <div className="hero__bg">
-        <image-slot id="hero-bg" src="../assets/hero_bg_1780049066898.png" placeholder="Foto hero — interno negozio / card in mano"></image-slot>
+        <image-slot id="hero-bg" src="../img/other/IMG_3089-01.jpeg" placeholder="Foto hero: interno negozio / card in mano"></image-slot>
       </div>
       <div className="hero__scrim"></div>
       <div className="wrap hero__inner">
         <div className="eyebrow">Il tuo punto di riferimento a Benevento</div>
         <h1>Gioca.<br />Colleziona.<em>Vivi.</em></h1>
         <p className="hero__sub">
-          L'epicentro dell'intrattenimento al C.C. I Sanniti. Videogiochi nuovi e usati, TCG, Manga, Funko, Art Toys e Area Tornei. Molto più di un semplice negozio.
+          L'epicentro dell'intrattenimento al C.C. I Sanniti. Videogiochi nuovi e usati, TCG, Snack dal Mondo, Funko, Art Toys e Area Tornei. Molto più di un semplice negozio.
         </p>
         <div className="hero__cta">
           <a className="btn btn--primary" href="#eventi">Scopri gli eventi</a>
@@ -81,7 +81,7 @@ function Footer() {
       <div className="wrap" style={{ paddingBottom: 32, marginTop: -10 }}>
         <div className="foot__legal">
           © {new Date().getFullYear()} GamePeople Benevento · C.C. I Sanniti, Via dei Longobardi 24, Benevento 82100 ·
-          Vetrina informativa — nessuna vendita online.
+          Vetrina informativa · Nessuna vendita online. · Sito creato da <a href="https://leukoslabs.framer.website/" target="_blank" rel="noopener" style={{ color: "#fff", textDecoration: "underline" }}>Leukos</a>
         </div>
       </div>
     </footer>
@@ -98,7 +98,7 @@ function App() {
       <window.Events />
       <window.About />
       <window.Visit />
-      <window.Newsletter />
+      {/* <window.Newsletter /> */}
       <Footer />
     </React.Fragment>
   );

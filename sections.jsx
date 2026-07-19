@@ -1,8 +1,9 @@
 // sections.jsx — content sections for the GamePeople landing.
 // Exports all section components + shared data/icons to window for app.jsx.
-const { useState } = React;
+const { useState, useEffect } = React;
 
 /* ----------------------------- shared data ----------------------------- */
+const GP_SHEET_API = "https://script.google.com/macros/s/AKfycbyWLyL-daXga9jRHyZvJcGKBZ9vMIIkli5oinj32EAGuBoaKdItsBNffGkqFszcyVL3cA/exec"; // Inserisci qui l'URL dell'applicazione web di Google Apps Script per attivare il catalogo dinamico
 const GP_ADDRESS = "C.C. I Sanniti · Via dei Longobardi 24, Benevento 82100";
 const GP_MAPS = "https://maps.app.goo.gl/tSnkSwuz2pxaMR4X9";
 const GP_IG = "https://www.instagram.com/gamepeople_benevento/";
@@ -72,47 +73,223 @@ function Games() {
   );
 }
 
+/* ----------------------------- Reservation Modal ----------------------------- */
+function ReservationModal({ isOpen, onClose, product, onSubmit }) {
+  if (!isOpen || !product) return null;
+  const [nome, setNome] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!nome.trim()) {
+      setError("Il nome è obbligatorio");
+      return;
+    }
+    setSubmitting(true);
+    setError(null);
+    onSubmit({ nome, telefono })
+      .catch((err) => {
+        console.error("Errore salvataggio prenotazione:", err);
+        // Procediamo comunque con WhatsApp in caso di errore di salvataggio
+      })
+      .finally(() => {
+        setSubmitting(false);
+        // WhatsApp redirection
+        const cleanPhone = telefono.trim() ? ` (Tel: ${telefono.trim()})` : "";
+        const text = `Ciao GamePeople Benevento! Sono ${nome.trim()}${cleanPhone}. Vorrei prenotare il prodotto: ${product.name} (Prezzo: ${product.price}).`;
+        const whatsappUrl = `https://wa.me/39082450302?text=${encodeURIComponent(text)}`;
+        window.open(whatsappUrl, "_blank");
+        onClose();
+      });
+  };
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <button className="modal-close" onClick={onClose} aria-label="Chiudi modal">&times;</button>
+        <div className="eyebrow" style={{ color: "var(--gp-magenta-bright)", marginBottom: 8 }}>Prenotazione Prodotto</div>
+        <h3 className="modal-title" style={{ margin: "0 0 8px 0", color: "#fff", fontSize: 24, textTransform: "uppercase", fontFamily: "var(--font-display)" }}>{product.name}</h3>
+        <p className="modal-price" style={{ margin: "0 0 20px 0", color: "var(--fg-2)" }}>
+          Prezzo: <strong style={{ color: "var(--gp-blue-bright)" }}>
+            {product.price.toString().toLowerCase().includes("valutazione") || product.price.toString().toLowerCase().includes("variabile") ? (
+              product.price
+            ) : (
+              (product.price.toString().startsWith("da") ? "" : "€ ") + product.price
+            )}
+          </strong>
+        </p>
+        
+        <form onSubmit={handleSubmit} className="modal-form">
+          <div className="form-group" style={{ marginBottom: 16 }}>
+            <label htmlFor="modal-name" style={{ display: "block", marginBottom: 6, fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".06em", color: "var(--fg-2)" }}>Nome e Cognome *</label>
+            <input 
+              id="modal-name"
+              type="text" 
+              required 
+              placeholder="Inserisci il tuo nome e cognome" 
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+              disabled={submitting}
+              style={{ width: "100%", padding: "12px 18px", borderRadius: "30px", border: "1px solid var(--border-strong)", background: "rgba(255,255,255,0.06)", color: "#fff", outline: "none", fontSize: 15 }}
+            />
+          </div>
+          
+          <div className="form-group" style={{ marginBottom: 20 }}>
+            <label htmlFor="modal-phone" style={{ display: "block", marginBottom: 6, fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".06em", color: "var(--fg-2)" }}>Numero di Telefono (Consigliato per WhatsApp)</label>
+            <input 
+              id="modal-phone"
+              type="tel" 
+              placeholder="Inserisci il tuo numero" 
+              value={telefono}
+              onChange={(e) => setTelefono(e.target.value)}
+              disabled={submitting}
+              style={{ width: "100%", padding: "12px 18px", borderRadius: "30px", border: "1px solid var(--border-strong)", background: "rgba(255,255,255,0.06)", color: "#fff", outline: "none", fontSize: 15 }}
+            />
+          </div>
+          
+          {error && <div className="modal-error" style={{ color: "#ff4a4a", fontSize: 14, marginBottom: 12 }}>{error}</div>}
+          
+          <div className="modal-actions" style={{ display: "flex", gap: 12, justifyContent: "flex-end" }}>
+            <button type="button" className="btn btn--ghost" onClick={onClose} disabled={submitting} style={{ padding: "10px 20px", fontSize: 13 }}>
+              Annulla
+            </button>
+            <button type="submit" className="btn btn--magenta" disabled={submitting} style={{ padding: "10px 20px", fontSize: 13 }}>
+              {submitting ? "Salvataggio..." : "Prenota su WhatsApp"}
+            </button>
+          </div>
+        </form>
+        <p className="modal-note" style={{ fontSize: 12, color: "var(--fg-3)", marginTop: 18, lineHeight: 1.4 }}>
+          * La tua prenotazione verrà inserita nel nostro database per tenerti da parte il prodotto, e verrai indirizzato a WhatsApp per confermare i dettagli.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 /* ----------------------------- Catalog ----------------------------- */
 function Catalog() {
   const [cat, setCat] = useState("Tutti");
-  const list = cat === "Tutti" ? PRODUCTS : PRODUCTS.filter((p) => p.cat === cat);
+  const [products, setProducts] = useState(PRODUCTS);
+  const [loading, setLoading] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  useEffect(() => {
+    if (!GP_SHEET_API) return;
+    setLoading(true);
+    fetch(GP_SHEET_API)
+      .then((res) => {
+        if (!res.ok) throw new Error("Errore nel recupero dei dati");
+        return res.json();
+      })
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          const formatted = data.map((item) => ({
+            id: item.id ? String(item.id) : String(Math.random()),
+            game: item.categoria || "Prodotto",
+            name: item.prodotto || "",
+            price: item.prezzo || "",
+            cat: item.categoria || "Tutti",
+            tag: item.tag || "",
+            slot: item.id ? "p-" + item.id : "",
+            img: item.fotourl || ""
+          }));
+          setProducts(formatted);
+        }
+      })
+      .catch((err) => {
+        console.error("Errore caricamento prodotti da Google Sheets, uso fallback:", err);
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  const handleReservationSubmit = (formData) => {
+    if (!GP_SHEET_API) {
+      return Promise.resolve();
+    }
+    return fetch(GP_SHEET_API, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        prodotto: selectedProduct.name,
+        nome: formData.nome,
+        telefono: formData.telefono
+      })
+    });
+  };
+
+  const list = cat === "Tutti" ? products : products.filter((p) => p.cat === cat);
+  const uniqueCats = ["Tutti", ...new Set(products.map((p) => p.cat).filter(Boolean))];
+
   return (
     <section id="catalogo" className="pad" style={{ background: "linear-gradient(180deg,#0C1014 0%,#0e131a 100%)" }}>
       <div className="wrap">
         <div className="eyebrow">In evidenza</div>
         <h2 className="sec-title">Mini-catalogo</h2>
-        <div className="filters">
-          {CATS.map((c) => (
-            <button key={c} className={"chip" + (c === cat ? " active" : "")} onClick={() => setCat(c)}>{c}</button>
-          ))}
-        </div>
-        <div className="catalog">
-          {list.map((p) => (
-            <article className="product" key={p.name}>
-              <div className="product__img">
-                {p.tag && <span className="product__tag">{p.tag}</span>}
-                <image-slot id={p.slot} src={p.img} placeholder={"Foto prodotto"}></image-slot>
-              </div>
-              <div className="product__body">
-                <div className="product__game">{p.game}</div>
-                <div className="product__name">{p.name}</div>
-                <div className="product__row">
-                  <div className="product__price">€ {p.price}</div>
-                  <a className="product__ask" href={GP_IG} target="_blank" rel="noopener">
-                    Disponibilità 
-                    <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 14, height: 14, display: 'inline-block', verticalAlign: 'middle', marginLeft: 4, transition: 'transform 0.15s ease' }}>
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+        {loading ? (
+          <div style={{ color: "var(--fg-2)", padding: "40px 0", textAlign: "center", fontSize: "16px" }}>
+            Caricamento prodotti in corso...
+          </div>
+        ) : (
+          <React.Fragment>
+            <div className="filters">
+              {uniqueCats.map((c) => (
+                <button key={c} className={"chip" + (c === cat ? " active" : "")} onClick={() => setCat(c)}>{c}</button>
+              ))}
+            </div>
+            <div className="catalog">
+              {list.map((p) => (
+                <article className="product" key={p.name + p.id}>
+                  <div className="product__img">
+                    {p.tag && <span className="product__tag">{p.tag}</span>}
+                    <image-slot id={p.slot} src={p.img} placeholder={"Foto prodotto"}></image-slot>
+                  </div>
+                  <div className="product__body">
+                    <div className="product__game">{p.game}</div>
+                    <div className="product__name">{p.name}</div>
+                    <div className="product__row">
+                      <div className="product__price">
+                        {p.price.toString().toLowerCase().includes("valutazione") || p.price.toString().toLowerCase().includes("variabile") ? (
+                          p.price
+                        ) : (
+                          (p.price.toString().startsWith("da") ? "" : "€ ") + p.price
+                        )}
+                      </div>
+                      <button 
+                        className="product__ask" 
+                        style={{ background: "transparent", border: "none", cursor: "pointer", padding: 0 }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setSelectedProduct(p);
+                        }}
+                      >
+                        Prenota
+                        <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 14, height: 14, display: 'inline-block', verticalAlign: 'middle', marginLeft: 4, transition: 'transform 0.15s ease' }}>
+                          <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </React.Fragment>
+        )}
         <p className="catalog__note">
           * Catalogo di esempio: prezzi e disponibilità indicativi. Nessun acquisto online: prenoti scrivendoci sui social o vieni in negozio.
         </p>
       </div>
+      
+      <ReservationModal 
+        isOpen={selectedProduct !== null}
+        onClose={() => setSelectedProduct(null)}
+        product={selectedProduct}
+        onSubmit={handleReservationSubmit}
+      />
     </section>
   );
 }

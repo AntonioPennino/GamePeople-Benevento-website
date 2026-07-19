@@ -78,6 +78,7 @@ function ReservationModal({ isOpen, onClose, product, onSubmit }) {
   if (!isOpen || !product) return null;
   const [nome, setNome] = useState("");
   const [telefono, setTelefono] = useState("");
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
 
@@ -85,6 +86,10 @@ function ReservationModal({ isOpen, onClose, product, onSubmit }) {
     e.preventDefault();
     if (!nome.trim()) {
       setError("Il nome è obbligatorio");
+      return;
+    }
+    if (!privacyAccepted) {
+      setError("Devi accettare l'Informativa sulla Privacy per procedere");
       return;
     }
     setSubmitting(true);
@@ -136,7 +141,7 @@ function ReservationModal({ isOpen, onClose, product, onSubmit }) {
             />
           </div>
           
-          <div className="form-group" style={{ marginBottom: 20 }}>
+          <div className="form-group" style={{ marginBottom: 16 }}>
             <label htmlFor="modal-phone" style={{ display: "block", marginBottom: 6, fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".06em", color: "var(--fg-2)" }}>Numero di Telefono (Consigliato per WhatsApp)</label>
             <input 
               id="modal-phone"
@@ -148,6 +153,21 @@ function ReservationModal({ isOpen, onClose, product, onSubmit }) {
               style={{ width: "100%", padding: "12px 18px", borderRadius: "30px", border: "1px solid var(--border-strong)", background: "rgba(255,255,255,0.06)", color: "#fff", outline: "none", fontSize: 15 }}
             />
           </div>
+
+          <div className="form-group" style={{ marginBottom: 20, display: "flex", alignItems: "flex-start", gap: 10 }}>
+            <input 
+              id="modal-privacy"
+              type="checkbox" 
+              required
+              checked={privacyAccepted}
+              onChange={(e) => setPrivacyAccepted(e.target.checked)}
+              disabled={submitting}
+              style={{ marginTop: 4, cursor: "pointer", width: "16px", height: "16px", flexShrink: 0 }}
+            />
+            <label htmlFor="modal-privacy" style={{ fontSize: 13, color: "var(--fg-2)", cursor: "pointer", lineHeight: 1.45 }}>
+              Accetto il trattamento dei dati personali in conformità alla <a href="/privacy.html" target="_blank" rel="noopener" style={{ color: "var(--gp-blue-bright)", textDecoration: "underline", fontWeight: 600 }}>Privacy Policy</a> *
+            </label>
+          </div>
           
           {error && <div className="modal-error" style={{ color: "#ff4a4a", fontSize: 14, marginBottom: 12 }}>{error}</div>}
           
@@ -155,7 +175,7 @@ function ReservationModal({ isOpen, onClose, product, onSubmit }) {
             <button type="button" className="btn btn--ghost" onClick={onClose} disabled={submitting} style={{ padding: "10px 20px", fontSize: 13 }}>
               Annulla
             </button>
-            <button type="submit" className="btn btn--magenta" disabled={submitting} style={{ padding: "10px 20px", fontSize: 13 }}>
+            <button type="submit" className="btn btn--magenta" disabled={submitting || !privacyAccepted} style={{ padding: "10px 20px", fontSize: 13 }}>
               {submitting ? "Salvataggio..." : "Prenota su WhatsApp"}
             </button>
           </div>

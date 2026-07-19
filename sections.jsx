@@ -8,7 +8,7 @@ const GP_ADDRESS = "C.C. I Sanniti · Via dei Longobardi 24, Benevento 82100";
 const GP_MAPS = "https://maps.app.goo.gl/tSnkSwuz2pxaMR4X9";
 const GP_IG = "https://www.instagram.com/gamepeople_benevento/";
 const GP_FB = "https://www.facebook.com/gamepeoplebn";
-const GP_PHONE = "082450302";
+const GP_PHONE = "+393935236895";
 const GP_EMAIL = "gamepeoplebenevento@gmail.com";
 
 const GAMES = [
@@ -99,7 +99,7 @@ function ReservationModal({ isOpen, onClose, product, onSubmit }) {
         // WhatsApp redirection
         const cleanPhone = telefono.trim() ? ` (Tel: ${telefono.trim()})` : "";
         const text = `Ciao GamePeople Benevento! Sono ${nome.trim()}${cleanPhone}. Vorrei prenotare il prodotto: ${product.name} (Prezzo: ${product.price}).`;
-        const whatsappUrl = `https://wa.me/39082450302?text=${encodeURIComponent(text)}`;
+        const whatsappUrl = `https://wa.me/393935236895?text=${encodeURIComponent(text)}`;
         window.open(whatsappUrl, "_blank");
         onClose();
       });

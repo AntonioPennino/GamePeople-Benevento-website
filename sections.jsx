@@ -8,7 +8,7 @@ const GP_ADDRESS = "C.C. I Sanniti · Via dei Longobardi 24, Benevento 82100";
 const GP_MAPS = "https://maps.app.goo.gl/tSnkSwuz2pxaMR4X9";
 const GP_IG = "https://www.instagram.com/gamepeople_benevento/";
 const GP_FB = "https://www.facebook.com/gamepeoplebn";
-const GP_PHONE = "+393935236895";
+const GP_PHONE = "";
 const GP_EMAIL = "gamepeoplebenevento@gmail.com";
 
 const GAMES = [
@@ -101,11 +101,11 @@ function ReservationModal({ isOpen, onClose, product, onSubmit }) {
       })
       .finally(() => {
         setSubmitting(false);
-        // WhatsApp redirection
-        const cleanPhone = telefono.trim() ? ` (Tel: ${telefono.trim()})` : "";
+        // Instagram Direct redirection
+        const cleanPhone = telefono.trim() ? ` (Contatto: ${telefono.trim()})` : "";
         const text = `Ciao GamePeople Benevento! Sono ${nome.trim()}${cleanPhone}. Vorrei prenotare il prodotto: ${product.name} (Prezzo: ${product.price}).`;
-        const whatsappUrl = `https://wa.me/393935236895?text=${encodeURIComponent(text)}`;
-        window.open(whatsappUrl, "_blank");
+        const instagramUrl = "https://ig.me/m/gamepeople_benevento";
+        window.open(instagramUrl, "_blank");
         onClose();
       });
   };
@@ -142,11 +142,11 @@ function ReservationModal({ isOpen, onClose, product, onSubmit }) {
           </div>
           
           <div className="form-group" style={{ marginBottom: 16 }}>
-            <label htmlFor="modal-phone" style={{ display: "block", marginBottom: 6, fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".06em", color: "var(--fg-2)" }}>Numero di Telefono (Consigliato per WhatsApp)</label>
+            <label htmlFor="modal-phone" style={{ display: "block", marginBottom: 6, fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".06em", color: "var(--fg-2)" }}>Telefono o Username Instagram (Opzionale)</label>
             <input 
               id="modal-phone"
-              type="tel" 
-              placeholder="Inserisci il tuo numero" 
+              type="text" 
+              placeholder="Es. 3331234567 oppure @tuousername" 
               value={telefono}
               onChange={(e) => setTelefono(e.target.value)}
               disabled={submitting}
@@ -176,12 +176,12 @@ function ReservationModal({ isOpen, onClose, product, onSubmit }) {
               Annulla
             </button>
             <button type="submit" className="btn btn--magenta" disabled={submitting || !privacyAccepted} style={{ padding: "10px 20px", fontSize: 13 }}>
-              {submitting ? "Salvataggio..." : "Prenota su WhatsApp"}
+              {submitting ? "Salvataggio..." : "Conferma su Instagram"}
             </button>
           </div>
         </form>
         <p className="modal-note" style={{ fontSize: 12, color: "var(--fg-3)", marginTop: 18, lineHeight: 1.4 }}>
-          * La tua prenotazione verrà inserita nel nostro database per tenerti da parte il prodotto, e verrai indirizzato a WhatsApp per confermare i dettagli.
+          * La tua prenotazione verrà inserita nel nostro database per tenerti da parte il prodotto, e verrai indirizzato a Instagram per confermare i dettagli.
         </p>
       </div>
     </div>
@@ -399,8 +399,8 @@ function Visit() {
             </div>
 
             <div style={{ marginTop: 20, display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-              <a href={`tel:${GP_PHONE}`} className="btn btn--ghost" style={{ flex: 1, justifyContent: 'center' }}>Chiama Ora</a>
-              <a href={`mailto:${GP_EMAIL}`} className="btn btn--ghost" style={{ flex: 1, justifyContent: 'center' }}>Scrivici</a>
+              <a href={GP_IG} target="_blank" rel="noopener" className="btn btn--ghost" style={{ flex: 1, justifyContent: 'center' }}>Scrivici su IG</a>
+              <a href={`mailto:${GP_EMAIL}`} className="btn btn--ghost" style={{ flex: 1, justifyContent: 'center' }}>Email</a>
             </div>
             <ul className="hours">
               {days.map(([d, h], i) => (

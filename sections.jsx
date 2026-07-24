@@ -8,7 +8,7 @@ const GP_ADDRESS = "C.C. I Sanniti · Via dei Longobardi 24, Benevento 82100";
 const GP_MAPS = "https://maps.app.goo.gl/tSnkSwuz2pxaMR4X9";
 const GP_IG = "https://www.instagram.com/gamepeople_benevento/";
 const GP_FB = "https://www.facebook.com/gamepeoplebn";
-const GP_PHONE = "";
+const GP_PHONE = "082450302";
 const GP_EMAIL = "gamepeoplebenevento@gmail.com";
 
 const GAMES = [
@@ -398,9 +398,9 @@ function Visit() {
               </div>
             </div>
 
-            <div style={{ marginTop: 20, display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-              <a href={GP_IG} target="_blank" rel="noopener" className="btn btn--ghost" style={{ flex: 1, justifyContent: 'center' }}>Scrivici su IG</a>
-              <a href={`mailto:${GP_EMAIL}`} className="btn btn--ghost" style={{ flex: 1, justifyContent: 'center' }}>Email</a>
+            <div style={{ marginTop: 20, display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+              <a href={`tel:${GP_PHONE}`} className="btn btn--ghost" style={{ flex: 1, justifyContent: 'center', minWidth: '120px' }}>Chiama Ora</a>
+              <a href={GP_IG} target="_blank" rel="noopener" className="btn btn--ghost" style={{ flex: 1, justifyContent: 'center', minWidth: '120px' }}>Scrivici su IG</a>
             </div>
             <ul className="hours">
               {days.map(([d, h], i) => (
